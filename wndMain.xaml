@@ -1,0 +1,46 @@
+﻿<Window x:Class="MyNotepad.wndMain"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyNotepad"
+        mc:Ignorable="d"
+    Title="My notepad" Height="300" Width="300">
+	
+	<DockPanel  VerticalAlignment="Top">
+		<Menu x:Name="mnMain" DockPanel.Dock="Top">
+			<MenuItem Header="File">
+				<MenuItem Header="New" Command="New" x:Name="miNew"/>
+				<Separator />
+				<MenuItem Header="Open" Command="Open" x:Name="miOpen"/>
+				<MenuItem Header="Save" Command="Save" x:Name="miSave"/>
+				<MenuItem Header="Save as ..." Command="SaveAs" x:Name="miSaveAs"/>
+				<Separator />
+				<MenuItem Header="Exit" Click="miExit_Click" x:Name="miExit"/>
+			</MenuItem>
+		</Menu>
+		<Grid Height="241"  >
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="1*" />
+				<ColumnDefinition Width="1*" />
+				<ColumnDefinition Width="1*" />
+				<ColumnDefinition Width="1*" />
+				<ColumnDefinition Width="1*" />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="30" />
+				<RowDefinition Height="Auto" />
+			</Grid.RowDefinitions>
+			<Button Grid.Column="0" Grid.Row="0"  x:Name="btNew" Command="New" Content="New" />
+			<Button Grid.Column="1" Grid.Row="0"  x:Name="btOpen" Command="Open">Open</Button>
+			<Button Grid.Column="2" Grid.Row="0"  x:Name="btSave" Command="Save">Save</Button>
+			<Button Grid.Column="3" Grid.Row="0"  x:Name="btSaveAs" Command="SaveAs">Save as ...</Button>
+			<Button Grid.Column="4" Grid.Row="0"  x:Name="btExit" Click="miExit_Click">Exit</Button>
+			<TextBox Grid.ColumnSpan="5" Grid.Row="1" x:Name="tbText"  
+							 TextChanged="tbText_TextChanged" TextWrapping="NoWrap" 
+							 AcceptsReturn="True" TextDecorations="None" AcceptsTab="True" 
+							 VerticalAlignment="Stretch"/>
+		</Grid>
+	</DockPanel>
+
+</Window>
